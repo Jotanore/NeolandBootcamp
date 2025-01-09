@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(101, 201, 19);
+    background: linear-gradient(to bottom, rgb(180, 255, 58), rgb(143, 189, 26), rgb(49, 118, 0));
     color:rgb(255, 255, 255);
     font-family:Arial, Helvetica, sans-serif
 }
@@ -18,20 +18,27 @@ form{
 }
 
 nav{
-    background-color: rgb(158, 158, 158);
+    background-color: rgb(83, 83, 83);
+    border-radius:30px 30px 100px 100px;
+    top:0;
+    position: sticky;
 }
+
 
 nav ol{
     list-style: none;
     display: flex;
     padding: 0;
-    margin:0 ;
+    margin: 0;
     justify-content: center;
 }
 
 nav li{
     margin: 1rem 2em;
+    padding: 5px 25px;
     font-size: 25px;
+    background-color: aliceblue;
+    border-radius: 12px;
 }
 
 nav a{
@@ -44,9 +51,10 @@ nav a:hover{
 }
 
 header{
-    margin: 0 12rem;
+    margin: 2rem 12rem 1rem 12rem;
     background-color: rgb(17, 17, 17);
     padding-bottom: 3rem;
+    border-radius: 30px;
 }
 
 img{
@@ -55,11 +63,11 @@ img{
 }
 
 h1{
-    padding: 1em 2em;
+    padding: 1em 5em;
 }
 
 header ul{
-    margin: 0 2em;
+    margin: 0 9em;
 }
 
 p{
@@ -69,3 +77,8 @@ p{
 h2, h3{
     padding:0 2rem;
 }
+
+#resumen{
+    margin-bottom: 4rem;
+}
+
