@@ -7,8 +7,9 @@ body{
 footer{
     text-align: center;
     background-color: rgb(17, 17, 17);
-    margin: 0 12rem;
-    
+    margin: 2rem 12rem 0 12rem;
+    padding: 1rem;
+    border-radius: 2px;
 }
 
 form{
@@ -37,13 +38,14 @@ nav li{
     margin: 1rem 2em;
     padding: 5px 25px;
     font-size: 25px;
-    background-color: aliceblue;
+    background-color: rgb(83, 83, 83);
     border-radius: 12px;
+    border: 3px solid rgb(137, 255, 47);
 }
 
 nav a{
     text-decoration: none;
-    color:rgb(0, 0, 0);
+    color:rgb(250, 250, 250);
 }
 
 nav a:hover{
@@ -51,7 +53,7 @@ nav a:hover{
 }
 
 header{
-    margin: 2rem 12rem 1rem 12rem;
+    margin: 2rem 14rem 1rem 14rem;
     background-color: rgb(17, 17, 17);
     padding-bottom: 3rem;
     border-radius: 30px;
@@ -63,7 +65,8 @@ img{
 }
 
 h1{
-    padding: 1em 5em;
+    font-size: 40px;
+    padding: 1em 4em;
 }
 
 header ul{
