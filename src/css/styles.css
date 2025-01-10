@@ -1,24 +1,11 @@
 body{
-    background-color: rgb(101, 201, 19);
+    background-color: rgb(240, 241, 239);
     color:rgb(255, 255, 255);
     font-family:Arial, Helvetica, sans-serif
 }
 
-footer{
-    text-align: center;
-    background-color: rgb(17, 17, 17);
-    margin: 0 12rem;
-    
-}
-
-form{
-    background-color: rgb(75, 75, 75);
-    border-radius: 5px;
-    margin: 0 12rem;
-}
-
 nav{
-    background-color: rgb(158, 158, 158);
+    background: linear-gradient(rgb(224, 224, 224),rgb(122, 119, 119));
 }
 
 nav ol{
@@ -40,12 +27,12 @@ nav a{
 }
 
 nav a:hover{
-    color:chartreuse;
+    color:rgb(243, 243, 243);
 }
 
 header{
     margin: 0 12rem;
-    background-color: rgb(17, 17, 17);
+    background: linear-gradient(rgb(122, 119, 119),rgb(95, 177, 95));
     padding-bottom: 3rem;
 }
 
@@ -68,4 +55,16 @@ p{
 
 h2, h3{
     padding:0 2rem;
+}
+
+form{
+    background: linear-gradient(rgb(95, 177, 95),grey);
+    border-radius: 5px;
+    margin: 0 12rem;
+}
+
+footer{
+    text-align: center;
+    background: linear-gradient(rgb(122, 119, 119),rgb(2, 2, 2));
+    margin: 0 12rem;
 }
