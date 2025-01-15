@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/styles.pokemon.css" />
+    <title>Pokedex</title>
+</head>
+<body class="debug">
+    <header class="debug">
+      <h1 class="debug">Pokedex</h1>
+      <nav>
+        <ol>
+          <li><a href="">Inicio</a></li>
+          <li><a href="" class="active">Pokedex</a></li>
+          <li><a href="">Videojuegos y aplicaciones</a></li>
+          <li><a href="">TCG</a></li>
+          <li><a href="">Dibujos Animados</a></li>
+          <li><a href="">Eventos</a></li>
+          <li><a href="">Noticias</a></li>
+        </ol>
+      </nav>
+    </header>
+    <main class="debug">
+      <form>
+        <fieldset>
+          <label for="search">Nombre o número</label>
+          <input type="text" id="search" />
+        </fieldset>
+        <button type="button" id="searchButton" title="Buscar">&#x1F50D;&#xfe0e;</button>
+        <p>Busca un Pokémon por su nombre o usando su número de la Pokédex Nacional.</p>
+      </form>
+      <table class="debug">
+        <caption>Lista de Pokemons</caption>
+        <thead></thead>
+          <tbody>
+            <tr>
+              <td class="pokemon-card">
+                <a href="">
+                    <figure>
+                        <img src="./src/imgs/256x256.svg" alt="nombre_pokemon">
+                        <figcaption>Nº 001</figcaption>
+                    </figure>
+                </a>
+                <p class="taglist">
+                  <em class="tag planta">Planta</em>
+                  <em class="tag veneno">veneno</em>  
+                </p>
+             </td>
+             <td class="pokemon-card">
+                <a href="">
+                    <figure>
+                        <img src="./src/imgs/256x256.svg" alt="nombre_pokemon">
+                        <figcaption>Nº 001</figcaption>
+                    </figure>
+                </a>
+                <p class="taglist">
+                  <em class="tag planta">Planta</em>
+                  <em class="tag veneno">veneno</em>  
+                </p>
+             </td>
+             <td class="pokemon-card">
+                <a href="">
+                    <figure>
+                        <img src="./src/imgs/256x256.svg" alt="nombre_pokemon">
+                        <figcaption>Nº 001</figcaption>
+                    </figure>
+                </a>
+                <p class="taglist">
+                  <em class="tag planta">Planta</em>
+                  <em class="tag veneno">veneno</em>  
+                </p>
+             </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+            </tr>
+          </tfoot>
+      </table>
+    </main>
+  </body>
+</html>

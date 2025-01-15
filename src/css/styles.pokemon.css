@@ -1,0 +1,159 @@
+.debug {
+    padding: 1em;
+    background-color: rgba(193, 193, 193, 0.3);
+  }
+  
+  body {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    header {
+      grid-column-start: span 12;
+      display: flex;
+      flex-direction: column-reverse;
+  
+      h1 {
+        font-size: 2em;
+      }
+      nav {
+        ol {
+          display: flex;
+          justify-content: space-evenly;
+          column-gap: 1px;
+          list-style-type: none;
+  
+          li {
+            flex-grow: 1;
+            a {
+              display: block;
+              line-height: calc(3em - 5px);
+              text-align: center;
+              border-bottom: 5px;
+              border-color: rgb(242, 242, 242);
+              border-style: solid;
+  
+              &.active,
+              &:hover {
+                background-color: rgb(30, 30, 30);
+                border-color: rgb(30, 30, 30);
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+    main {
+      grid-column-start: span 12;
+      display: flex;
+      flex-direction: column;
+      row-gap: 1em;
+
+      .taglist {
+        display: flex;
+        column-gap: 10px;
+  
+  
+        .tag {
+          border-radius: 5px;
+          line-height: 2em;
+          text-align: center;
+          padding: 0 1em;
+  
+          &:has(+ .tag),
+          &+.tag {
+            flex-grow: 1;
+            padding: 0;
+          }
+  
+          &.planta {
+            background-color: #9bcc50;
+          }
+  
+          &.veneno {
+            color: white;
+            background-color: #b97fc9;
+          }
+        }
+      }
+  
+      .pokemon-card {
+        padding: 10px 10px 20px;
+        a {
+          text-decoration: none;
+  
+          figure {
+            img {
+              display: block;
+              max-width: 100%;
+              border-radius: 5px;
+            }
+  
+            figcaption {
+              margin-top: .3em;
+              font-size: .8em;
+              color: #919191;
+            }
+          }
+        }
+  
+        h1 {
+          margin-top: .5em;
+          font-weight: bold;
+        }
+  
+        p {
+          margin-top: .5em;
+        }
+      }
+
+      form {
+        display: flex;
+        flex-direction: row;
+        column-gap: 1em;
+        padding: 1em;
+        align-items: flex-end;
+        background-color: #333;
+  
+        fieldset {
+          display: flex;
+          flex-direction: column;
+          row-gap: 1em;
+          width: 100px;
+          label {
+            font-weight: bold;
+            color: white;
+          }
+          input {
+            width: 200px;
+            line-height: 40px;
+            font-size: 36px;
+          }
+        }
+        button {
+          height: 45px;
+          width: 80px;
+          font-size: 24px;
+          background-color: red;
+          border-radius: 8px;
+          border-width: 0;
+          cursor: pointer;
+          color: white;
+        }
+        p {
+          padding: 1em;
+          border-radius: 10px;
+          background-color: green;
+          color: white;
+        }
+      }
+      table {
+        border: 1px solid black;
+        caption {
+          font-weight: bold;
+        }
+      }
+    }
+  }
