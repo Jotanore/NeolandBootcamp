@@ -151,9 +151,31 @@
       }
       table {
         border: 1px solid black;
+
         caption {
           font-weight: bold;
         }
       }
     }
+
+    ol{
+        display: flex;
+        flex-wrap: wrap;
+        background-color: white;
+        li{
+            max-width: 25%;
+            flex-grow: 1;
+        }
+    }
+
+    .pokegallery{
+        display: grid;
+        justify-items: center;
+        background-color: #7f4760;
+        grid-template-columns: repeat(3, 1fr);
+        width: calc(270px * 3);
+
+
+    }
+    
   }
