@@ -5,13 +5,21 @@ document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
 
   console.log(POKEMONS);
 
-  readPokemonsList();
+  readPokemonsList(33);
   buscarPokemon(5);
 
-  function readPokemonsList(){
+  function readPokemonsList(maxPokemons){
     const LISTA = document.getElementsByClassName('pokegallery')[0];
+    const totalPokemons = POKEMONS.length;
+    let numberOfShowPokemons = 0;
 
-    for(let i = 0; i < POKEMONS.length; i++){
+    if(maxPokemons !== undefined){
+      numberOfShowPokemons = maxPokemons;
+    }else{
+      numberOfShowPokemons = totalPokemons;
+    }
+
+    for(let i = 0; i < numberOfShowPokemons; i++){
 
         let pokemonId = POKEMONS[i].id
         let liElement = document.createElement('li');
@@ -65,6 +73,11 @@ document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
     console.log('ha cargado');
     const searchButton = document.getElementById('searchButton');
     searchButton.addEventListener('click', onSearch);
+
+    const linkList = document.querySelectorAll('.pokemon-card>a')
+    for (let linkElement of linkList) {
+    linkElement.addEventListener('click', onAClick)
+    }
   }
 
   function onSearch(){
@@ -72,6 +85,10 @@ document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
     const searchInput = document.getElementById('search');
     const searchText = searchInput.value;
     const listPokemon = buscarPokemon(searchText);
+  }
+
+  function onAClick(e){
+    e.preventDefault();
   }
 
   function buscarPokemon(q){
@@ -98,3 +115,4 @@ document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
     return returnValue
     
   }
+

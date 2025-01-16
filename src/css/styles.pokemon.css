@@ -3,21 +3,23 @@
     background-color: rgba(193, 193, 193, 0.3);
   }
   
-  @media screen and (max-width:1024px){
-
-    ol{
-      display: grid;
-      flex-wrap: wrap;
-      justify-items: center;
-      background-color: #e45e5e;
-      grid-template-columns: 1;
-      width: 100%;
-      li{
-        max-width: 25%;
-        flex-grow: 1;
+  @media screen and (max-width:768px){
+    body{
+      main{
+        .pokegallery{
+          display: block;
+          flex-wrap: wrap;
+          justify-items: center;
+          background-color: #8b8b8b;;
+          grid-template-columns: 1;
+          width: 100%;
+          li{
+            max-width: 100%;
+            flex-grow: 1;
+          }
+         }
+        }
       }
-  
-    }
   }
 
   body {
@@ -269,7 +271,7 @@
       grid-template-columns: repeat(3, 1fr);
       width: 100%;
       li{
-        max-width: 25%;
+        max-width: 33%;
         flex-grow: 1;
     }
 
