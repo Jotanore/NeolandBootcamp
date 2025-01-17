@@ -1,141 +1,103 @@
-// 1. Definimos nuestra lista de la compra
-// Text strings
-let newArticleName = 'flanes'
-// Numbers
-let totalAmount = 0
-// Arrays
-let shoppingList = []
-// Constants
-const PERAS = 'peras'
-// TODO: define my shopping list items
-const PRODUCTS = {
-  MILK: 'leche',
-  FRUIT: 'fruta',
-  MEAT: 'carne'
-}
-// Example: dictionary
-const URLS = {
-  home: 'index.practica.html',
-  tables: 'tablas.practica.html',
-  notFound: '404.html'
-}
-const I18N = {
-  es: {
-    'new.article': 'Nuevo artículo'
-  },
-  en: {
-    'new.article': 'New article'
-  }
-}
-// Objects
-let productInformation = {
-  qty: 0,
-  name: '',
-  price: 0
-}
-let shoppingListWithObjects = [
-  {
-    qty: 1,
-    name: 'carne',
-    price: 10
-  },
-  {
-    qty: 2,
-    name: 'fruta',
-    price: 2
-  },
-  {
-    qty: 3,
-    name: 'pescado',
-    price: 20
-  }
-]
+const shoppingList = [];
+let totalAmount = 0;
 
-console.log('LISTA DE LA COMPRA POR DEFECTO', shoppingList)
 
-// Add current article to shopping list
-function addToShoppingList() {
-  // Add to shopping list as text string
-  let articleName = document.getElementById('article').value
-  let articleQty = document.getElementById('qty').value
-  let articlePrice = document.getElementById('price').value
-  let shoppingListTableBody = document.getElementById('shoppingListTableBody')
-  let shoppingListTableTotal = document.getElementById('shoppingListTableTotal')
-  let totalAmount = 0
-  // Define new article object
-  let newArticleObject = {
-    qty: 0,
-    name: '',
-    price: 0
-  }
+document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
 
-  if (articleName === '') {
-    console.error('Falta el nombre del articulo')
-    return
-  }
+function onDOMContentLoaded(){
+    const newArticleButton = document.getElementById('newArticle');
+    const resetListButton = document.getElementById('newList');
 
-  // Depending on article type, assign default qty and price
-  switch (articleName) {
-    case PRODUCTS.MILK:
-      articleQty = 12
-      articlePrice = 24
-      break;
-    case PRODUCTS.FRUIT:
-      articleQty = 3
-      articlePrice = 2
-      break;
-    default:
-      break;
-  }
+    newArticleButton.addEventListener('click', createShoppingListItem);
+    resetListButton.addEventListener('click', resetList);
 
-  // Cast to numbers when needed
-  articleQty = Number(articleQty)
-  articlePrice = Number(articlePrice)
-
-  // Update declared new article object with final values
-  newArticleObject = {
-    qty: articleQty,
-    name: articleName,
-    price: articlePrice
-  }
-
-  // Add to shopping list as object
-  shoppingList.push(newArticleObject)
-
-  // Calculate total amount
-  for (let i = 0; i < shoppingList.length; i = i + 1) {
-    // For each shoppingList item:
-    let shoppingListItem = shoppingList[i]
-    let shoppingListItemSubtotal = shoppingListItem.qty * shoppingListItem.price
-    totalAmount = totalAmount + shoppingListItemSubtotal
-  }
-  shoppingListTableTotal.innerText = totalAmount
-  // Create new article on table
-  // 1. Create table row
-  let newTableRow = document.createElement('tr')
-  // 2. Create row cells
-  let qtyCell = document.createElement('td')
-  let nameCell = document.createElement('td')
-  let priceCell = document.createElement('td')
-  let subtotalCell = document.createElement('td')
-  // 3. Add cell values
-  qtyCell.innerText = newArticleObject.qty
-  nameCell.innerText = newArticleObject.name
-  priceCell.innerText = newArticleObject.price
-  subtotalCell.innerText = (newArticleObject.qty * newArticleObject.price) + ' €'
-  // 4. Add cells to table row
-  newTableRow.appendChild(qtyCell)
-  newTableRow.appendChild(nameCell)
-  newTableRow.appendChild(priceCell)
-  newTableRow.appendChild(subtotalCell)
-  // 5. Add table row to shoppingListTableBody
-  shoppingListTableBody.appendChild(newTableRow)
 }
 
-function resetShoppingList() {
-  shoppingList = []
-  shoppingListTableBody.innerHTML = "";
-  console.log('resetShoppingList', shoppingList)
-  totalAmount = 0;
-  shoppingListTableTotal.innerText = "0";
+function createShoppingListItem(){
+    const articleName = document.getElementById('article').value;
+    const articleQty = document.getElementById('qty').value;
+    const articlePrice = document.getElementById('price').value;
+    const timestamp = new Date()
+
+    let newArticleObject = {
+        name: articleName,
+        qty: articleQty,
+        price: articlePrice 
+    };
+
+    if (articleName === '' || articleName.includes(1,2,3,4,5,6,7,8,9,0)) {
+        alert('Falta el nombre del articulo');
+        return;
+      }
+    if (articleQty === '') {
+        alert('Falta la cantidad del articulo');
+        return;
+    }
+    if (articlePrice === '') {
+        alert('Falta el precio del articulo');
+        return;
+    }
+
+    shoppingList.push(newArticleObject);
+
+    console.log(newArticleObject);
+    addRowElement(newArticleObject);
+}
+
+function deleteShoppingListItem(e){
+    const itemIdToDelete = e.target.getAttribute('id-to-delete')
+    console.log(e);
+    const item = shoppingList.find((shopp))
+}
+
+
+
+function addRowElement(newArticleObject){
+    let shoppingListTableBody = document.getElementById('shoppingListTableBody');
+    let shoppingListTableTotal = document.getElementById('shoppingListTableTotal');
+
+    let newTableRow = document.createElement('tr');
+
+    let nameCell = document.createElement('td');
+    let qtyCell = document.createElement('td');
+    let priceCell = document.createElement('td');
+    let subtotalCell = document.createElement('td');
+    const rButton = document.createElement('button');
+
+    let newArticleSubtotal = newArticleObject.qty * newArticleObject.price;
+
+    nameCell.innerText = newArticleObject.name;
+    qtyCell.innerText = newArticleObject.qty;
+    priceCell.innerText = newArticleObject.price;
+    subtotalCell.innerText = newArticleSubtotal;
+    
+    rButton.className = "removeButton";
+    rButton.textContent = "Remove" 
+    rButton.setAttribute('id-to-delete', )
+    rButton.addEventListener('click', deleteShoppingListItem);
+
+    newTableRow.appendChild(nameCell);
+    newTableRow.appendChild(qtyCell);
+    newTableRow.appendChild(priceCell);
+    newTableRow.appendChild(subtotalCell);
+    newTableRow.appendChild(rButton);
+
+    shoppingListTableBody.appendChild(newTableRow);
+
+    totalAmount += newArticleSubtotal;
+    shoppingListTableTotal.innerText = totalAmount;
+    console.log(totalAmount);
+}
+
+function resetList(){
+    if (shoppingList.length == 0){
+        alert('Cesta vacia');
+        return
+    }
+
+    while (shoppingList.length > 0) { 
+           shoppingList.pop();}
+    totalAmount = 0;      
+    shoppingListTableBody.innerHTML = "";
+    shoppingListTableTotal.innerText = "0";
 }
