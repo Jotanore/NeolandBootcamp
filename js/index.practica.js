@@ -8,9 +8,14 @@ function onDOMContentLoaded(){
     const newArticleButton = document.getElementById('newArticle');
     const resetListButton = document.getElementById('newList');
 
-    newArticleButton.addEventListener('click', createShoppingListItem);
+    newArticleButton.addEventListener('click', onNewItemSubmit);
     resetListButton.addEventListener('click', resetList);
 
+}
+
+function onNewItemSubmit(e){
+    createShoppingListItem();
+    cleanUpForm();
 }
 
 function createShoppingListItem(){
@@ -19,7 +24,10 @@ function createShoppingListItem(){
     const articlePrice = document.getElementById('price').value;
     const timestamp = new Date()
 
+    const id = articleName + '_' + String(timestamp.getTime());
+
     let newArticleObject = {
+        id: id,
         name: articleName,
         qty: articleQty,
         price: articlePrice 
@@ -40,15 +48,28 @@ function createShoppingListItem(){
 
     shoppingList.push(newArticleObject);
 
-    console.log(newArticleObject);
+    localStorage.setItem('shoppingList', JSON.stringify(shoppingList));
     addRowElement(newArticleObject);
 }
 
 function deleteShoppingListItem(e){
     const itemIdToDelete = e.target.getAttribute('id-to-delete')
-    console.log(e);
-    const item = shoppingList.find((shopp))
+    const rowToDelete = e.target.closest('tr')
+    const itemIndex = shoppingList.findIndex((shoppingListItem) => shoppingListItem.id === itemIdToDelete)
+    shoppingList.splice(itemIndex, 1)
+    rowToDelete.remove()
+    getTotalAmount()
 }
+
+function cleanUpForm() {
+    const articleNameElement = document.getElementById('article')
+    const qtyElement = document.getElementById('qty')
+    const priceElement = document.getElementById('price')
+
+    articleNameElement.value = ''
+    qtyElement.value = ''
+    priceElement.value = ''
+  }
 
 
 
@@ -64,16 +85,16 @@ function addRowElement(newArticleObject){
     let subtotalCell = document.createElement('td');
     const rButton = document.createElement('button');
 
-    let newArticleSubtotal = newArticleObject.qty * newArticleObject.price;
-
+    getTotalAmount()
+ 
     nameCell.innerText = newArticleObject.name;
     qtyCell.innerText = newArticleObject.qty;
     priceCell.innerText = newArticleObject.price;
-    subtotalCell.innerText = newArticleSubtotal;
+    subtotalCell.innerText = newArticleObject.price*newArticleObject.qty;
     
     rButton.className = "removeButton";
     rButton.textContent = "Remove" 
-    rButton.setAttribute('id-to-delete', )
+    rButton.setAttribute('id-to-delete',newArticleObject.id )
     rButton.addEventListener('click', deleteShoppingListItem);
 
     newTableRow.appendChild(nameCell);
@@ -83,10 +104,16 @@ function addRowElement(newArticleObject){
     newTableRow.appendChild(rButton);
 
     shoppingListTableBody.appendChild(newTableRow);
+}
 
-    totalAmount += newArticleSubtotal;
+function getTotalAmount(){
+    const shoppingListTableTotal = document.getElementById('shoppingListTableTotal')
+    let totalAmount = 0
+    for (let article of shoppingList) {
+        let newArticleSubtotal = article.qty * article.price
+        totalAmount += newArticleSubtotal
+      }
     shoppingListTableTotal.innerText = totalAmount;
-    console.log(totalAmount);
 }
 
 function resetList(){
