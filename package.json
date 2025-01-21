@@ -1,0 +1,19 @@
+{
+  "name": "neolandbootcamp",
+  "version": "1.0.0",
+  "description": "Proyecto de practicas para el Bootcamp de Neoland",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jotanore/NeolandBootcamp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jotanore/NeolandBootcamp/issues"
+  },
+  "homepage": "https://github.com/Jotanore/NeolandBootcamp#readme"
+}
