@@ -1,0 +1,50 @@
+[
+    {
+        "id": "leche_1",
+        "name": "Leche",
+        "qty": "12",
+        "price":"24"
+    },
+    {
+        "id": "pollo_2",
+        "name": "Pollo",
+        "qty": "1",
+        "price":"5"
+    },
+    {
+        "id": "natillas_3",
+        "name": "Natillas",
+        "qty": "4",
+        "price":"2"
+    },
+    {
+        "id": "zumo_4",
+        "name": "Zumo",
+        "qty": "1",
+        "price":"1"
+    },
+    {
+        "id": "guisantes_5",
+        "name": "Guisantes",
+        "qty": "1",
+        "price":"3"
+    },
+    {
+        "id": "croquetas_6",
+        "name": "Croquetas",
+        "qty": "1",
+        "price":"4"
+    },
+    {
+        "id": "limonada_7",
+        "name": "Limonada",
+        "qty": "1",
+        "price":"2"
+    },
+    {
+        "id": "bizcocho_8",
+        "name": "Bizcocho",
+        "qty": "1",
+        "price":"5"
+    }
+]

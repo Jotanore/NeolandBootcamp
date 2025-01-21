@@ -1,6 +1,8 @@
+import USUAL_PRODUCTS from '../src/api/get.articles.json' with {type: 'json'};
+
 const shoppingList = [];
 let totalAmount = 0;
-
+//const API_USUAL_PRODUCTS_URL = direccion api
 
 document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
 
@@ -10,7 +12,9 @@ function onDOMContentLoaded(){
 
     newArticleButton.addEventListener('click', onNewItemSubmit);
     resetListButton.addEventListener('click', resetList);
-
+    document.getElementById('article').addEventListener('input', autocompleteFields);
+    getUsualProducts();
+    getApiData();
 }
 
 function onNewItemSubmit(e){
@@ -128,3 +132,48 @@ function resetList(){
     shoppingListTableBody.innerHTML = "";
     shoppingListTableTotal.innerText = "0";
 }
+
+function getUsualProducts() {
+    const dataListElement = document.getElementById('productos');
+    USUAL_PRODUCTS.forEach((product) => {
+        const newOptionElement = document.createElement('option');
+        newOptionElement.value = product.name;
+        dataListElement.appendChild(newOptionElement);
+    })
+}
+
+async function getApiData(){
+    //const API_MERCADONA = 'https://tienda.mercadona.es/api/categories'
+    const API_USUAL_PRODUCTS_URL = 'src/api/get.articles.json'
+    const apiData = await fetch(API_USUAL_PRODUCTS_URL)
+    .then((response) => {
+        if(!response.ok){
+            showError();
+        }
+
+        return response.json();
+    })
+console.log(apiData)
+}
+
+function showError(errorMessage){
+    window.alert(errorMessage)
+    console.error(errorMessage)
+    throw new Error(`HTTP error! Status: ${errorMessage}`)
+}
+
+function autocompleteFields() {
+    const articleInput = document.getElementById('article').value;
+    const qtyInput = document.getElementById('qty');
+    const priceInput = document.getElementById('price');
+
+    const selectedProduct = USUAL_PRODUCTS.find(product => product.name === articleInput);
+
+    if (selectedProduct) {
+      qtyInput.value = selectedProduct.quantity;  
+      priceInput.value = selectedProduct.price;  
+    } else {
+      qtyInput.value = ""; 
+      priceInput.value = "";
+    }
+  }
