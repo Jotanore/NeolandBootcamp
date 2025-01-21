@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/css/styles.lista.css">
-    <script src="./js/index.practica.js"></script>
+    <script type="module" src="./js/index.practica.js"></script>
     <title>Lista de la compra</title>
 </head>
 <body>
@@ -15,7 +15,10 @@
         <section>
                 <form>
                     <legend><b>AÑADIR A LA LISTA</b></legend>
-                    <input type="text" id="article" placeholder="Nuevo Articulo" name="item" autocomplete="off"/>
+                    <datalist id="productos">
+
+                    </datalist>
+                    <input type="text" id="article" placeholder="Nuevo Articulo" name="item" list="productos" autocomplete="off"/>
                     <input type="number" id="qty" placeholder="Cantidad" name="qty" autocomplete="off" min="0" max="100" step="1"/>
                     <input type="number" id="price" placeholder="Precio" name="price" autocomplete="off" min="0" max="100" step="1"/>
                     <button type="button" id="newArticle">Enviar</button>
