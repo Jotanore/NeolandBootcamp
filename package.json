@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Jotanore/NeolandBootcamp/issues"
   },
-  "homepage": "https://github.com/Jotanore/NeolandBootcamp#readme"
+  "homepage": "https://github.com/Jotanore/NeolandBootcamp#readme",
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
 }
