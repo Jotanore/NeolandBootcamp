@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import USUAL_PRODUCTS from '../src/api/get.articles.json' with {type: 'json'};
 
 const shoppingList = [];
